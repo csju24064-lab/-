@@ -1,7 +1,327 @@
-<!doctype html>
-<meta charset=
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* --- 全体・共通のデザイン設定 --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-"utf-8">
-<title>自己紹介</title>
-<h1>自己紹介</h1>
-<p>授業で作成したページです。</p>
+        body {
+            background-color: #0d1117; /* ダークネイビーグレー */
+            color: #c9d1d9; /* 明るいグレー文字 */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            padding-bottom: 60px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- ヘッダー（タイトルエリア） --- */
+        header {
+            background: linear-gradient(135deg, #161b22 0%, #0d1117 100%);
+            border-bottom: 2px solid #00f7ff; /* サイバーシアンの線 */
+            padding: 80px 0 40px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "SYSTEM STATUS: SECURE";
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 0.75rem;
+            color: #39ff14; /* ネオングリーン */
+            font-family: monospace;
+            letter-spacing: 2px;
+        }
+
+        header h1 {
+            color: #ffffff;
+            font-size: 2.5rem;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+        }
+
+        header p {
+            color: #00f7ff;
+            font-size: 1.1rem;
+            font-family: monospace;
+        }
+
+        /* --- ナビゲーションメニュー --- */
+        nav {
+            background-color: #161b22;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #30363d;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        nav .nav-container {
+            display: block;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #c9d1d9;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            display: inline-block;
+            transition: color 0.3s;
+            font-family: monospace;
+        }
+
+        nav a:hover {
+            color: #00f7ff;
+        }
+
+        /* --- セクション全体の共通設定 --- */
+        section {
+            padding: 60px 0 20px 0;
+            border-bottom: 1px solid #21262d;
+        }
+
+        h2 {
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            border-left: 4px solid #00f7ff;
+            padding-left: 12px;
+            font-family: monospace;
+            display: flex;
+            align-items: center;
+        }
+
+        h2 i {
+            margin-right: 10px;
+            color: #39ff14;
+        }
+
+        /* --- 各セクション別のデザイン --- */
+        /* About */
+        .profile-box {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 15px;
+        }
+        .profile-tag {
+            display: inline-block;
+            background-color: rgba(57, 255, 14, 0.1);
+            color: #39ff14;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-family: monospace;
+            margin-bottom: 15px;
+        }
+
+        /* Skills */
+        .skill-category {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .skill-category h3 {
+            color: #00f7ff;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            font-family: monospace;
+        }
+        .skill-tags span {
+            display: inline-block;
+            background-color: #21262d;
+            color: #f0f6fc;
+            padding: 6px 12px;
+            border-radius: 6px;
+            margin: 0 8px 8px 0;
+            font-size: 0.9rem;
+            border: 1px solid #30363d;
+        }
+
+        /* Works */
+        .card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .card::before {
+            content: "◆";
+            position: absolute;
+            left: -10px;
+            top: 28px;
+            color: #00f7ff;
+            background-color: #0d1117;
+            padding: 0 4px;
+        }
+        .card h3 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        .highlight-text {
+            color: #39ff14;
+            font-weight: bold;
+        }
+
+        /* Reflection */
+        .reflection-box {
+            background-color: #161b22;
+            border-left: 4px solid #39ff14;
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+        }
+        .reflection-box p {
+            margin-bottom: 15px;
+        }
+        .reflection-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* フッター */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            color: #8b949e;
+            font-size: 0.85rem;
+            font-family: monospace;
+        }
+
+        /* --- レスポンシブ対応 --- */
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            nav a { padding: 10px 10px; font-size: 0.85rem; }
+            section { padding: 40px 0 10px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>PORTFOLIO</h1>
+            <p>&lt; Security Engineer Aspirant /&gt;</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#about">ABOUT</a>
+            <a href="#skills">SKILLS</a>
+            <a href="#works">WORKS</a>
+            <a href="#reflection">REFLECTION</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <section id="about">
+            <h2><i class="fa-solid fa-user-shield"></i>ABOUT</h2>
+            <div class="profile-box">
+                <span class="profile-tag">STATUS: CYBER SECURITY STUDENT</span>
+                <p style="margin-bottom: 15px;">
+                    情報理工学系の学科に所属している学生です（Web一般公開のため、個人が特定される情報はすべて非公開とし、ハンドルネーム <strong>Gamer/Student</strong> として活動しています）。
+                </p>
+                <p>
+                    現在は大学の講義に加え、所属しているサークルで<strong>CTF（Capture The Flag）</strong>の学習に熱中しています。暗号、Web脆弱性、バイナリ解析などの技術に触れ、日々実践的なセキュリティ技術を磨いています。
+                </p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2><i class="fa-solid fa-code"></i>SKILLS</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>■ プログラミング言語</h3>
+                    <div class="skill-tags">
+                        <span>C言語</span>
+                        <span>Java</span>
+                        <span>Python (自動化・スクリプト作成)</span>
+                        <span>HTML / CSS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>■ 開発・セキュリティツール</h3>
+                    <div class="skill-tags">
+                        <span>VS Code</span>
+                        <span>Git</span>
+                        <span>GitHub / GitHub Desktop</span>
+                        <span>Linux (セキュリティ演習用環境)</span>
+                        <span>Wireshark (パケット解析)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="works">
+            <h2><i class="fa-solid fa-terminal"></i>WORKS & GOALS</h2>
+            
+            <div class="card">
+                <h3>将来の目標：セキュリティエンジニア</h3>
+                <p>
+                    システムをサイバー攻撃から防衛・保護し、安全なインフラを支える<span class="highlight-text">「セキュリティエンジニア」</span>になることを目標にしています。ソフトウェアの脆弱性が生まれる根本的なメカニズムを理解した専門性の高いエンジニアを目指しています。
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>進路：大学院への進学と高度研究の志望</h3>
+                <p>
+                    現在の学部での学びに加え、将来的には<span class="highlight-text">大学院への進学</span>を視野に入れています。大学院では、サイバーセキュリティに関するより専門的で高度な研究に取り組み、実社会の防衛に役立つ暗号技術やネットワーク防御手法を探求したいと考えています。
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>現在の取り組み</h3>
+                <p>
+                    CTFの過去問題に挑戦し、問題の解法をロジカルに整理する「Writeup」の作成を行っています。また、効率的なログ分析やパケット解析を行うためのPythonスクリプト自作にも挑戦し、技術の自動化を学んでいます。
+                </p>
+            </div>
+        </section>
+
+        <section id="reflection">
+            <h2><i class="fa-solid fa-brain"></i>REFLECTION</h2>
+            <div class="reflection-box">
+                <p>
+                    今回の演習を通じて、<strong>GitおよびGitHubを用いたバージョン管理</strong>と、<strong>生成AI（LLM）と協働したWeb開発</strong>の基本プロセスを体験しました。
+                </p>
+                <p>
+                    単にファイルをローカルに保存するだけでなく、Gitを用いて「意味のある変更履歴（コミット）を積み重ねていく」重要性を学んだことで、開発プロセスの透明性や変更管理の重要性を実感しました。これは将来、脆弱性のない安全なコードを設計・開発する（セキュアコーディング）上でも、非常に重要な基礎知識になると感じています。
+                </p>
+                <p>
+                    また、AIを活用して効率的に開発の土台を作り、それを自分の目的に合わせて手動で監査・修正していくプロセスを体験できたことは大きな収穫でした。今後もソフトウェア工学の手法を意識しながら、安全で信頼性の高いシステム構築の技術を磨いていきたいです。
+                </p>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Information Engineering Student Portfolio. Powered by GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
